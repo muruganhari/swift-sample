@@ -11,7 +11,8 @@ import Alamofire
 
 class LoginViewController: RootVC {
 
-    let commonObj=Common()
+    let commonObj=Common().sharedInstance
+    
     @IBOutlet var txtUsername: UITextField!
     
     @IBOutlet var txtPwd: UITextField!
@@ -28,6 +29,8 @@ class LoginViewController: RootVC {
         self.navigationItem.title="Login"
         self.getMethod()
         
+        commonObj.username = "sample app"
+        print(commonObj.username)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(get), name: "sample_post", object: nil)
     }
 

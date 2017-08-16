@@ -10,8 +10,23 @@ import UIKit
 import Alamofire
 var commonAppName = "Sample"
 let version: Int = 1
-class Common: NSObject {
+var sharedSingleton: Common? = nil
 
+class Common: NSObject {
+    var username: NSString = ""
+    var age:Int = 0
+
+    /*********** Implement Singleton *************/
+    
+    internal var sharedInstance: Common {
+        if(sharedSingleton == nil)
+        {
+            sharedSingleton = Common()
+        }
+        return sharedSingleton!
+    }
+    /*****************************************/
+    
     func intRet(a:NSString)->Int
     {
         let ak:Int=a.integerValue

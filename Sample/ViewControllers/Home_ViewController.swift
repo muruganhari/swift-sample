@@ -26,6 +26,8 @@ class Home_ViewController: RootVC {
         super.viewDidLoad()
         self.backbtn()
         
+        let commonObj=Common().sharedInstance
+        print(commonObj.username)
         
         /****Collect UINavigation ViewControllers*****/
         let allViewC: [UIViewController] = (self.navigationController?.viewControllers)! as [UIViewController]
@@ -51,13 +53,13 @@ class Home_ViewController: RootVC {
         season = .GET
         switch season {
         case .GET:
-            print("Climate is Hot")
+            print("Get method")
         case .POST:
-            print("Climate is Cold")
+            print("Post method")
         case .PUT:
-            print("Climate is Moderate")
+            print("Put method")
         case .DELETE:
-            print("Climate is Rainy")
+            print("Delete method")
         default:
             print("Climate is not predictable")
         }
@@ -72,6 +74,7 @@ class Home_ViewController: RootVC {
             isReachable = true
             return
         }
+        
         /*****************************************/
 //        NSNotificationCenter.defaultCenter().addObserver(self, selector:selector("get"), name: "sample_post", object: self)
         
@@ -84,6 +87,8 @@ class Home_ViewController: RootVC {
     }
     override func viewDidDisappear(animated: Bool) {
         super.viewDidAppear(true)
+        let commonObj=Common()
+        print(commonObj.username)
         
     }
 //    override func backAction() -> Void {
