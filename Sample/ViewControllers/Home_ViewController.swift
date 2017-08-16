@@ -18,18 +18,36 @@ class Home_ViewController: RootVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.backbtn()
+        
+        let allViewC: [UIViewController] = (self.navigationController?.viewControllers)! as [UIViewController]
+        
+        for singleVC:UIViewController in allViewC
+        {
+            if(singleVC.isKindOfClass(Home_ViewController))
+            {
+                print("Having Home view controller class")
+            }
+        }
+        
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector:selector("get"), name: "sample_post", object: self)
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    override func backAction() -> Void {
-        delegate?.getMsg("Good morning")
-        print(commonAppName)
-        self.navigationController?.popViewControllerAnimated(false)
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidAppear(true)
+        
     }
+//    override func backAction() -> Void {
+//        delegate?.getMsg("Good morning")
+//        print(commonAppName)
+//        NSNotificationCenter.defaultCenter().postNotificationName("sample_post", object: nil)
+//        self.navigationController?.popViewControllerAnimated(false)
+//    }
 
     /*
     // MARK: - Navigation

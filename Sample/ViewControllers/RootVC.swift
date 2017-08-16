@@ -13,6 +13,7 @@ class RootVC: UIViewController,sampleDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        print("\("Version: --->",version)")
     }
     func backbtn()
     {
@@ -35,6 +36,7 @@ class RootVC: UIViewController,sampleDelegate {
         presentViewController(alertController, animated: true, completion: nil)
     }
     func backAction() -> Void {
+        NSNotificationCenter.defaultCenter().postNotificationName("sample_post", object: nil)
        self.navigationController?.popViewControllerAnimated(false)
     }
     override func didReceiveMemoryWarning() {

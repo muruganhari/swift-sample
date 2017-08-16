@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 var commonAppName = "Sample"
-
+let version: Int = 1
 class Common: NSObject {
 
     func intRet(a:NSString)->Int

@@ -16,20 +16,19 @@ class LoginViewController: RootVC {
     
     @IBOutlet var txtPwd: UITextField!
     @IBAction func btnLogin(sender: AnyObject) {
+        
+        
         let sb=UIStoryboard(name:"Main",bundle: nil)
         let home=sb.instantiateViewControllerWithIdentifier("Home_ViewController") as! Home_ViewController
         home.delegate=self
         self.navigationController!.pushViewController(home, animated: false)
-        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title="Login"
         self.getMethod()
         
-        
-        
-        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(get), name: "sample_post", object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,7 +53,11 @@ class LoginViewController: RootVC {
             }
         })
     }
-    
+    func get(){
+        let alert:UIAlertView=UIAlertView.init(title: "Welcome", message: "first post message", delegate: self, cancelButtonTitle: "Ok")
+        alert.show()
+        
+    }
     
 }
 
