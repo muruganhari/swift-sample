@@ -11,6 +11,13 @@ import UIKit
 protocol sampleDelegate:class {
     func getMsg(msg: NSString)
 }
+enum Climate {
+    case GET
+    case POST
+    case PUT
+    case DELETE
+}
+
 class Home_ViewController: RootVC {
 
     let sampleDict: NSDictionary = NSDictionary()
@@ -19,8 +26,9 @@ class Home_ViewController: RootVC {
         super.viewDidLoad()
         self.backbtn()
         
-        let allViewC: [UIViewController] = (self.navigationController?.viewControllers)! as [UIViewController]
         
+        /****Collect UINavigation ViewControllers*****/
+        let allViewC: [UIViewController] = (self.navigationController?.viewControllers)! as [UIViewController]
         for singleVC:UIViewController in allViewC
         {
             if(singleVC.isKindOfClass(Home_ViewController))
@@ -28,7 +36,43 @@ class Home_ViewController: RootVC {
                 print("Having Home view controller class")
             }
         }
+        /*****************************************/
         
+        
+        /***********Inline Closure*************/
+        let s={(a:Int,b:Int)->Int in return a+b}
+        print(s(5,25))
+        /*****************************************/
+        
+        
+        /**************Enumeration Call***************/
+        
+        var season = Climate.GET
+        season = .GET
+        switch season {
+        case .GET:
+            print("Climate is Hot")
+        case .POST:
+            print("Climate is Cold")
+        case .PUT:
+            print("Climate is Moderate")
+        case .DELETE:
+            print("Climate is Rainy")
+        default:
+            print("Climate is not predictable")
+        }
+        /*****************************************/
+        
+
+        
+        /************** Guard ***************/
+        
+        var isReachable = false
+        guard isReachable else{
+            isReachable = true
+            return
+        }
+        /*****************************************/
 //        NSNotificationCenter.defaultCenter().addObserver(self, selector:selector("get"), name: "sample_post", object: self)
         
         // Do any additional setup after loading the view.
