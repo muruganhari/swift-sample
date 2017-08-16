@@ -45,14 +45,14 @@ class LoginViewController: RootVC {
 //                return result
 //        }
         
-        let Api = NSURL(string: "http://httpbin.org/get")!
+        let Api = NSURL(string: "http://httpbin.orgsa/get")!
         let param:NSDictionary=["foo":"bar"]
         commonObj.getRequest(param,url: Api,completionHandler: { (response, error) in
             if response != nil {
 //                let dict:[String:AnyObject] = (response as? [String:AnyObject])!
                 
                 let dict:NSDictionary = response! as! NSDictionary
-                print("\("Result:--->",dict)")
+                print("Result:---> \(dict)")
             }
         })
     }

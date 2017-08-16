@@ -8,12 +8,24 @@
 
 import UIKit
 
+struct Number{
+    var digits: Int
+    let pi : Float
+}
+
 class RootVC: UIViewController,sampleDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         print("\("Version: --->",version)")
+        
+        let n = Number(digits:2123, pi:2.0)
+        //n.digits = 67
+        
+        print("sample: \(n.digits)")
+        print("\(n.pi)")
+        
     }
     func backbtn()
     {
